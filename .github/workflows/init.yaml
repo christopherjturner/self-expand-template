@@ -25,7 +25,7 @@ jobs:
       - name: write a file
         shell: bash
         run: |
-      	  git config --global user.name 'christopherjturner'
+          git config --global user.name 'christopherjturner'
       	  git config --global user.email 'christopherjturner@users.noreply.github.com'
       	  git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
       	  git add foo.txt
