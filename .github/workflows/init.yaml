@@ -14,7 +14,7 @@ on:
 jobs:
   write_to_repo:
     runs-on: ubuntu-latest
-    if: github.repository != "christopherjturner/self-expand-template
+    if: github.repository != 'christopherjturner/self-expand-template'
     steps:
       - uses: actions/checkout@v4
       - name: template
