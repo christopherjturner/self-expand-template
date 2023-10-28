@@ -14,12 +14,13 @@ on:
 jobs:
   write_to_repo:
     runs-on: ubuntu-latest
+    if: github.repository != "christopherjturner/self-expand-template
     steps:
       - uses: actions/checkout@v4
-      - name: template 
+      - name: template
         shell: bash
         run: |
-      	  date > foo.txt  # do the templating here,
+      	  date > foo.txt
           echo "your new templated project is here!" > README.md
       - name: write a file
         shell: bash
