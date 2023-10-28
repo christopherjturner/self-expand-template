@@ -1,0 +1,33 @@
+name: Template
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+  id-token: write
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  write_to_repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: template 
+        shell: bash
+        run: |
+      	  date > foo.txt  # do the templating here,
+          echo "your new templated project is here!" > README.md
+      - name: write a file
+        shell: bash
+    	run: |
+      	  git config --global user.name 'christopherjturner'
+      	  git config --global user.email 'christopherjturner@users.noreply.github.com'
+      	  git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+      	  git add foo.txt
+      	  git rm .github/workflows/init.yaml // remove itself after the run
+      	  git commit -am "Auto-template action"
+      	  git push
