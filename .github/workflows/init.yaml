@@ -29,7 +29,7 @@ jobs:
           git config --global user.email 'christopherjturner@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git add foo.txt
-          git rm .github/workflows/init.yaml // remove itself after the run
+          git rm .github/workflows/init.yaml
           git commit -am "Auto-template action"
           git push
           
